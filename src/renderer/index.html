@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';" />
+    <title>Teams Morph - Theme Customizer</title>
+    <style>
+      /* Loading state styles */
+      body {
+        margin: 0;
+        background-color: #1a1625;
+        color: #e8e6f0;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      }
+      
+      #loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        gap: 16px;
+      }
+      
+      .loading-spinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid #3d3555;
+        border-top-color: #8b5cf6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+      #root:not(:empty) + #loading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading Teams Morph...</p>
+    </div>
+  </body>
+</html>

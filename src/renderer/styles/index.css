@@ -1,0 +1,244 @@
+/**
+ * Teams Morph - Main Stylesheet
+ * 
+ * Combines Tailwind CSS with custom styles.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import theme variables */
+@import './themes.css';
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-[var(--app-bg)] text-[var(--app-text)] min-h-screen;
+    overflow: hidden;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  /* Prevent text selection on UI elements */
+  button,
+  label,
+  nav,
+  header {
+    user-select: none;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Button variants */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-150;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--app-accent)] text-white hover:bg-[var(--app-accent-hover)];
+    @apply focus-visible:ring-[var(--app-accent)];
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--app-surface)] text-[var(--app-text)] hover:bg-opacity-80;
+    @apply border border-[var(--app-border)];
+    @apply focus-visible:ring-[var(--app-border)];
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-[var(--app-text)] hover:bg-[var(--app-surface)];
+    @apply focus-visible:ring-[var(--app-border)];
+  }
+
+  .btn-danger {
+    @apply bg-[var(--app-error)] text-white hover:bg-red-600;
+    @apply focus-visible:ring-[var(--app-error)];
+  }
+
+  .btn-success {
+    @apply bg-[var(--app-success)] text-white hover:bg-green-600;
+    @apply focus-visible:ring-[var(--app-success)];
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
+
+  .btn-icon {
+    @apply p-2;
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-[var(--app-surface)] rounded-lg border border-[var(--app-border)];
+  }
+
+  .card-hover {
+    @apply hover:border-[var(--app-accent)] transition-colors duration-150;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full px-3 py-2 rounded-md;
+    @apply bg-[var(--app-surface)] text-[var(--app-text)];
+    @apply border border-[var(--app-border)];
+    @apply focus:outline-none focus:border-[var(--app-accent)];
+    @apply placeholder:text-[var(--app-text-secondary)];
+  }
+
+  /* Label */
+  .label {
+    @apply block text-sm font-medium text-[var(--app-text)] mb-1;
+  }
+
+  /* Section header */
+  .section-header {
+    @apply text-sm font-semibold text-[var(--app-text-secondary)] uppercase tracking-wider mb-3;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-[var(--app-border)] my-4;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-[var(--app-accent)] text-white;
+  }
+
+  .badge-success {
+    @apply bg-[var(--app-success)] text-white;
+  }
+
+  .badge-warning {
+    @apply bg-[var(--app-warning)] text-black;
+  }
+
+  .badge-error {
+    @apply bg-[var(--app-error)] text-white;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    @apply absolute z-50 px-2 py-1 text-sm rounded shadow-lg;
+    @apply bg-gray-900 text-white;
+  }
+
+  /* Color swatch */
+  .color-swatch {
+    @apply w-8 h-8 rounded border border-[var(--app-border)] cursor-pointer;
+    @apply hover:border-[var(--app-accent)] transition-colors;
+  }
+
+  .color-swatch-lg {
+    @apply w-12 h-12;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--app-accent), #a78bfa);
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-sm bg-opacity-80;
+  }
+
+  /* Truncate with ellipsis */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom scrollbar for specific elements */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.2s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.15s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
