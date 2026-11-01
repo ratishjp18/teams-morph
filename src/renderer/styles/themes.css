@@ -1,0 +1,94 @@
+/**
+ * Teams Morph - Theme CSS Variables
+ * 
+ * These CSS variables are dynamically updated based on the active theme.
+ * They are used throughout the application for consistent theming.
+ */
+
+:root {
+  /* App UI colors (not theme colors) */
+  --app-bg: #1a1625;
+  --app-surface: #211d2e;
+  --app-text: #e8e6f0;
+  --app-text-secondary: #a09ab0;
+  --app-accent: #8b5cf6;
+  --app-accent-hover: #7c3aed;
+  --app-border: #3d3555;
+  --app-success: #22c55e;
+  --app-warning: #f59e0b;
+  --app-error: #ef4444;
+
+  /* Preview theme variables (updated dynamically) */
+  --preview-sidebar-bg: #1a1625;
+  --preview-sidebar-text: #e8e6f0;
+  --preview-sidebar-active: #2d2640;
+  --preview-sidebar-hover: #252035;
+  --preview-sidebar-icon: #9d8ec7;
+
+  --preview-chatlist-bg: #211d2e;
+  --preview-chatlist-text: #e8e6f0;
+  --preview-chatlist-secondary: #a09ab0;
+  --preview-chatlist-active: #2d2640;
+  --preview-chatlist-hover: #282337;
+  --preview-chatlist-badge: #8b5cf6;
+
+  --preview-chat-bg: #1e1a29;
+  --preview-chat-header-bg: #252035;
+  --preview-chat-header-text: #e8e6f0;
+
+  --preview-sent-bg: #6b5ce7;
+  --preview-sent-text: #ffffff;
+  --preview-received-bg: #2d2640;
+  --preview-received-text: #e8e6f0;
+  --preview-timestamp: #8b86a0;
+
+  --preview-input-bg: #252035;
+  --preview-input-text: #e8e6f0;
+  --preview-input-border: #3d3555;
+  --preview-input-placeholder: #8b86a0;
+
+  --preview-accent: #8b5cf6;
+  --preview-accent-secondary: #a78bfa;
+  --preview-button-bg: #6b5ce7;
+  --preview-button-text: #ffffff;
+  --preview-button-hover: #7c6ef0;
+
+  --preview-border: #3d3555;
+  --preview-divider: #2d2640;
+  --preview-scrollbar-track: #1a1625;
+  --preview-scrollbar-thumb: #3d3555;
+
+  /* Font size */
+  --preview-font-size: 14px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--app-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--app-text-secondary);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--app-accent);
+  color: white;
+}
